@@ -9,8 +9,6 @@ other inputs will result in an error.
 Example:
     $ python exercise1.py
 
-
-#This is a test 
 """
 
 __author__ = 'Susan Sim'
