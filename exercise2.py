@@ -30,7 +30,7 @@ def checksum(upc):
 
     upcValidSize = 12
     if type(upc) is str:  # verify if upc value is a string
-        upcParamSize = len(upc)  # get the size of upc value and assign into variable upc_param_size
+        upcParamSize = len(upc)  # get the size of upc value and assign into variable upcParamSize
         if upcParamSize < 1:  # if upc size is less than 1, raise Value Error and indicate required size is 12 digits
             raise ValueError("upc is less than the required 12 digits size")
         else:
@@ -39,7 +39,7 @@ def checksum(upc):
                 upcParamSize = upcParamSize - upcValidSize
                 # raise ValueError with message indicating the excess digits
                 raise ValueError ("upc is greater than " + str(upcParamSize) +
-                                   " digit/s of the required 12 digits")
+                                   " digits of the required 12 digits")
     else:
         raise TypeError ("upc is not a string")
     upcArray = list(upc)  # get upc value and covert into array
@@ -71,3 +71,4 @@ def checksum(upc):
         return True
     else:
         return False
+

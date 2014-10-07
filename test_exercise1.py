@@ -2,13 +2,9 @@
 
 """ Module to test exercise1.py """
 
-__author__ = 'Susan Sim'
-__email__ = "ses@drsusansim.org"
-
-__copyright__ = "2014 Susan Sim"
-__license__ = "MIT License"
-
-__status__ = "Prototype"
+__author__ = 'Anne Simon', 'Grant Wheeler'
+__email__ = "anne.simon@mail.utoronto.ca", "grant.wheeler@mail.utoronto.ca"
+__copyright__ = "2014 Anne and Grant"
 
 # imports one per line
 import pytest
@@ -30,8 +26,14 @@ def test_letter_grade():
 
     with pytest.raises(ValueError):
         grade_to_gpa("q")
-    # add more tests for invalid values
-
+    with pytest.raises(ValueError):
+        grade_to_gpa("x")
+    with pytest.raises(ValueError):
+        grade_to_gpa("a")
+    with pytest.raises(ValueError):
+        grade_to_gpa("a+")
+    with pytest.raises(ValueError):
+        grade_to_gpa("c")
 
 def test_percentage_grade():
     """
@@ -67,7 +69,12 @@ def test_percentage_grade():
 
     with pytest.raises(ValueError):
         grade_to_gpa(101)
+    with pytest.raises(ValueError):
         grade_to_gpa(-1)
+    with pytest.raises(ValueError):
+        grade_to_gpa(-4)
+    with pytest.raises(ValueError):
+        grade_to_gpa(10000)
 
 
 def test_float_input():
@@ -76,5 +83,7 @@ def test_float_input():
     """
     with pytest.raises(TypeError):
         grade_to_gpa(82.5)
-
-# add functions for any other tests
+    with pytest.raises(TypeError):
+        grade_to_gpa(96.2)
+    with pytest.raises(TypeError):
+        grade_to_gpa(-77.8)

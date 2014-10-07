@@ -2,15 +2,10 @@
 
 """ Module to test exercise2.py """
 
-__author__ = 'Susan Sim'
-__email__ = "ses@drsusansim.org"
+__author__ = 'Anne Simon', 'Grant Wheeler'
+__email__ = "anne.simon@mail.utoronto.ca", "grant.wheeler@mail.utoronto.ca"
+__copyright__ = "2014 Anne and Grant"
 
-__copyright__ = "2014 Susan Sim"
-__license__ = "MIT License"
-
-__status__ = "Prototype"
-
-# imports one per line
 
 # imports one per line
 import pytest
@@ -24,7 +19,9 @@ def test_checksum():
     assert checksum("786936224306") is True
     assert checksum("085392132225") is True
     assert checksum("717951000841") is False
-    # other tests
+    assert checksum("127847390583") is False
+    assert checksum("123456789012") is True
+
 
 
 def test_input():
@@ -35,12 +32,16 @@ def test_input():
         checksum(1.0)
     with pytest.raises(TypeError):
         checksum(786936224306)
+    with pytest.raises(TypeError):
+        checksum(1)
+    with pytest.raises(TypeError):
+        checksum(-1)
+    with pytest.raises(TypeError):
+        checksum(-3.2)
 
     with pytest.raises(ValueError):
         checksum("1")
     with pytest.raises(ValueError):
         checksum("1234567890")
-
-    # other tests
-
-# add functions for any other tests
+    with pytest.raises(ValueError):
+        checksum("43783920192837483")
